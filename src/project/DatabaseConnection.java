@@ -1,6 +1,9 @@
 package project;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseConnection {
     private  static String driver = "com.mysql.jdbc.Driver";
@@ -59,6 +62,28 @@ public class DatabaseConnection {
         }
         return false;
     }
+
+    public static ArrayList<Product> showProduct(){
+        ArrayList<Product> product = new ArrayList<>();
+        try {
+            Class.forName(driver);
+            Connection connection = DriverManager.getConnection(dbURL,dbUser,dbPass);
+            String query = "Select * From Product";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                product.add(new Product(resultSet.getInt("product_id"),resultSet.getString("product_name"),resultSet.getInt("quantity"),resultSet.getInt("price"),resultSet.getString("description"),resultSet.getString("lastupdate")));
+            }
+            connection.close();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
+
 
 
 

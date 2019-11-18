@@ -37,6 +37,22 @@ public class ModifyProductController {
         alert.setHeaderText("Congratulation");
         alert.setContentText("Modify Complete\n");
         alert.showAndWait();
+
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        Scene scene = confirm.getScene();
+        root.translateYProperty().set(scene.getHeight());
+
+
+        stackPane.getChildren().add(root);
+
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t -> {
+            stackPane.getChildren().remove(anchorPane);
+        });
+        timeline.play();
     }
 
     @FXML

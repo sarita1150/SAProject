@@ -17,10 +17,9 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class AddProductController {
-
+public class CheckPaymentController {
     @FXML
-    private Button confirm;
+    private Button submit;
 
     @FXML
     private Button back;
@@ -32,15 +31,15 @@ public class AddProductController {
     private AnchorPane anchorPane;
 
     @FXML
-    private void loadConfirm(ActionEvent event) throws IOException {
+    private void loadSubmit(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("ป้าแกลบ");
         alert.setHeaderText("Congratulation");
-        alert.setContentText("Add Complete\n");
+        alert.setContentText("Check Payment Complete\n");
         alert.showAndWait();
 
         Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-        Scene scene = confirm.getScene();
+        Scene scene = submit.getScene();
         root.translateYProperty().set(scene.getHeight());
 
 
@@ -54,11 +53,12 @@ public class AddProductController {
             stackPane.getChildren().remove(anchorPane);
         });
         timeline.play();
+
     }
 
     @FXML
     private void loadBack(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("WarehouseDepartment.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         Scene scene = back.getScene();
         root.translateYProperty().set(scene.getHeight());
 

@@ -4,6 +4,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,6 @@ public class WarehouseDepartmentController {
 
     @FXML
     private AnchorPane anchorPane;
-
     @FXML
     private void loadConfirm(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("AddProduct.fxml"));
