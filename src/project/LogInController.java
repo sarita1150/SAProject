@@ -96,12 +96,12 @@ public class LogInController {
 
         stackPane.getChildren().add(root);
 
-        Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(t -> {
-            stackPane.getChildren().remove(anchorPane);
+//        Timeline timeline = new Timeline();
+//        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+//        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+//        timeline.getKeyFrames().add(kf);
+//        timeline.setOnFinished(t -> {
+//            stackPane.getChildren().remove(anchorPane);
         });
         timeline.play();
 
