@@ -17,13 +17,13 @@ public class DatabaseConnection {
             java.sql.Connection conn = DriverManager.getConnection(dbURL,dbUser,dbPass);
             if (conn != null) {
                 System.out.println("Connected to the database....");
-                //String query = "Insert Into Employee VALUES ()";
+                String query = "Insert Into Employee VALUES ()";
                 Statement statement = conn.createStatement();
-                //ResultSet resultSet = statement.executeQuery(query);
-//                while (resultSet.next()){
-//                    System.out.println(resultSet.getString("password"));
-//                    System.out.println(resultSet.getString("username"));
-//                }
+                ResultSet resultSet = statement.executeQuery(query);
+                while (resultSet.next()){
+                    System.out.println(resultSet.getString("password"));
+                    System.out.println(resultSet.getString("username"));
+                }
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
