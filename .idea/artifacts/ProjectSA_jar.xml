@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProjectSA:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProjectSA_jar</output-path>
+    <root id="archive" name="ProjectSA.jar">
+      <element id="module-output" name="ProjectSA" />
+      <element id="library" level="project" name="mysql-connector-java-5.1.48" />
+    </root>
+  </artifact>
+</component>
