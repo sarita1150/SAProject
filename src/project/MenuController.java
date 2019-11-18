@@ -78,8 +78,18 @@ public class MenuController {
         product_id.setCellValueFactory(new PropertyValueFactory<>("product_id"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
-        detail_button.setCellValueFactory(new PropertyValueFactory<>("button"));
-    }
+       detail_button.setCellValueFactory(new PropertyValueFactory<>("button"));
+
+
+  }
+//    @FXML
+//    private void setDetail_button() throws IOException {
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("ป้าแกลบ");
+//        alert.setHeaderText("Congratulation");
+//        alert.setContentText("Login Complete\n");
+//        alert.showAndWait();
+//    }
 
     @FXML
     private void loadLogout(ActionEvent event) throws IOException {
