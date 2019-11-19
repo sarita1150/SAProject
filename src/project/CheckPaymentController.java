@@ -19,7 +19,7 @@ import java.io.IOException;
 
 public class CheckPaymentController {
     @FXML
-    private Button Submit;
+    private Button submit;
 
     @FXML
     private Button back;
@@ -35,8 +35,25 @@ public class CheckPaymentController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("ป้าแกลบ");
         alert.setHeaderText("Congratulation");
-        alert.setContentText("Payment Complete\n");
+        alert.setContentText("Check Payment Complete\n");
         alert.showAndWait();
+
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        Scene scene = submit.getScene();
+        root.translateYProperty().set(scene.getHeight());
+
+
+        stackPane.getChildren().add(root);
+
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t -> {
+            stackPane.getChildren().remove(anchorPane);
+        });
+        timeline.play();
+
     }
 
     @FXML

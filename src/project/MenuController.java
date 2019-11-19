@@ -5,6 +5,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,7 +30,7 @@ public class MenuController {
     Button checkPayment;
 
     @FXML
-    Button wherehouse;
+    Button warehouse;
 
     @FXML
     Button modifyProduct;
@@ -71,25 +72,19 @@ public class MenuController {
     @FXML
     private AnchorPane anchorPane;
 
+    public static MenuController mc;
+
     public void initialize(){
+        mc = this;
         Product test = new Product(1,"test",3,3,"test","test");
-        tableView.getItems().addAll(DatabaseConnection.showProduct());
+        refreshTableView();
         product_name.setCellValueFactory(new PropertyValueFactory<>("product_name"));
         product_id.setCellValueFactory(new PropertyValueFactory<>("product_id"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
         detail_button.setCellValueFactory(new PropertyValueFactory<>("button"));
 
-
     }
-//    @FXML
-//    private void setDetail_button() throws IOException {
-//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//        alert.setTitle("ป้าแกลบ");
-//        alert.setHeaderText("Congratulation");
-//        alert.setContentText("Login Complete\n");
-//        alert.showAndWait();
-//    }
 
     @FXML
     private void loadLogout(ActionEvent event) throws IOException {
@@ -113,8 +108,8 @@ public class MenuController {
 
     @FXML
     private void loadWarehouse(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("WarehouseDepartment.fxml"));
-        Scene scene = wherehouse.getScene();
+        Parent root = FXMLLoader.load(getClass().getResource("AddProduct.fxml"));
+        Scene scene = warehouse.getScene();
         root.translateYProperty().set(scene.getHeight());
 
 
@@ -151,25 +146,6 @@ public class MenuController {
 
     }
 
-    @FXML
-    private void loadModifyProduct(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ModifyProduct.fxml"));
-        Scene scene = modifyProduct.getScene();
-        root.translateYProperty().set(scene.getHeight());
-
-
-        stackPane.getChildren().add(root);
-
-        Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(t -> {
-            stackPane.getChildren().remove(anchorPane);
-        });
-        timeline.play();
-
-    }
 
     @FXML
     private void loadOrderDetail(ActionEvent event) throws IOException {
@@ -209,6 +185,12 @@ public class MenuController {
         });
         timeline.play();
 
+    }
+
+
+    public void refreshTableView(){
+        tableView.getItems().removeAll();
+        tableView.getItems().addAll(DatabaseConnection.showProduct());
     }
 
 }

@@ -17,9 +17,9 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class ModifyProductController {
+public class CheckPaymentController {
     @FXML
-    private Button confirm;
+    private Button Submit;
 
     @FXML
     private Button back;
@@ -31,11 +31,11 @@ public class ModifyProductController {
     private AnchorPane anchorPane;
 
     @FXML
-    private void loadConfirm(ActionEvent event) throws IOException {
+    private void loadSubmit(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("ป้าแกลบ");
         alert.setHeaderText("Congratulation");
-        alert.setContentText("Modify Complete\n");
+        alert.setContentText("Payment Complete\n");
         alert.showAndWait();
     }
 

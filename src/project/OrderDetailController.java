@@ -4,6 +4,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +17,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class OrderDetailController {
+public class OrderDetailController<ProductTable> {
 
 
     @FXML
@@ -27,6 +28,8 @@ public class OrderDetailController {
 
     @FXML
     private AnchorPane anchorPane;
+
+    ObservableList<ProductTable> data = (ObservableList<ProductTable>) DatabaseConnection.showProduct();
 
     @FXML
     private void loadBack(ActionEvent event) throws IOException {
