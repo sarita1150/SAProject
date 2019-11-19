@@ -72,9 +72,12 @@ public class MenuController {
     @FXML
     private AnchorPane anchorPane;
 
+    public static MenuController mc;
+
     public void initialize(){
+        mc = this;
         Product test = new Product(1,"test",3,3,"test","test");
-        tableView.getItems().addAll(DatabaseConnection.showProduct());
+        refreshTableView();
         product_name.setCellValueFactory(new PropertyValueFactory<>("product_name"));
         product_id.setCellValueFactory(new PropertyValueFactory<>("product_id"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
@@ -182,6 +185,12 @@ public class MenuController {
         });
         timeline.play();
 
+    }
+
+
+    public void refreshTableView(){
+        tableView.getItems().removeAll();
+        tableView.getItems().addAll(DatabaseConnection.showProduct());
     }
 
 }

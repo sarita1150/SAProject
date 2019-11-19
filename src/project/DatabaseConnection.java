@@ -72,7 +72,7 @@ public class DatabaseConnection {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
-              product.add(new Product(resultSet.getInt("product_id"),resultSet.getString("product_name"),resultSet.getInt("quantity"),resultSet.getInt("price"),resultSet.getString("description"),resultSet.getString("lastupdate")));
+              product.add(new Product(resultSet.getInt(1),resultSet.getString("product_name"),resultSet.getInt("quantity"),resultSet.getInt("price"),resultSet.getString("description"),resultSet.getString("lastupdate")));
                 System.out.println(resultSet.getString("product_id"));
                 System.out.println(resultSet.getString("product_name"));
             }
@@ -83,26 +83,21 @@ public class DatabaseConnection {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        System.out.println("ok");
         return product;
     }
 
     public static void addProduct(int quantity,int product_id){
         try {
-            Class.forName(driver);
-            java.sql.Connection conn = DriverManager.getConnection(dbURL,dbUser,dbPass);
+            Connection conn = DriverManager.getConnection(dbURL,dbUser,dbPass);
             if (conn != null) {
                 System.out.println("Connected to the database....");
                 String query = "Update Product Set quantity = quantity +"+ quantity + " Where product_id = "+product_id;
                 Statement statement = conn.createStatement();
-                ResultSet resultSet = statement.executeQuery(query);
-                while (resultSet.next()){
-                    System.out.println(query);
-                }
+                statement.executeUpdate(query);
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception ex){
+            System.out.println("error");
         }
     }
 

@@ -6,9 +6,9 @@ import javafx.scene.control.Alert;
 
 public class Product {
     private   Alert alert;
-    private static int product_id,price,quantity;
-    private static String product_name,description,lastupdate;
-    private static int wight;
+    private int product_id,price,quantity;
+    private String product_name,description,lastupdate;
+    private int wight;
     private Button button;
 
     public Product() {
@@ -35,7 +35,7 @@ public class Product {
     }
 
 
-    public static int getProduct_id() {
+    public int getProduct_id() {
         return product_id;
     }
 
@@ -62,7 +62,7 @@ public class Product {
         return wight;
     }
 
-    public static int getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
