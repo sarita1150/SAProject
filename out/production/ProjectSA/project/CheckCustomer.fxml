@@ -41,7 +41,7 @@
                   <TableColumn prefWidth="74.0" text="Tel" />
                   <TableColumn prefWidth="131.0" text="Address" />
                   <TableColumn prefWidth="76.0" text="Type" />
-                  <TableColumn prefWidth="98.0" text="Money tranfer" />
+                  <TableColumn prefWidth="98.0" text="Money transfer" />
               </columns>
             </TableView>
             <Button fx:id="back" layoutX="629.0" layoutY="403.0" mnemonicParsing="false" onAction="#loadBack" prefWidth="67.0" text="Back" />

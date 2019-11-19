@@ -1,21 +1,41 @@
 package project;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-public class Product {
-    private  int product_id,price,quantity;
-    private  String product_name,description,lastupdate;
-    private  int wight;
+import javafx.scene.control.Alert;
 
-    public Product(int id , String name , int quantity , int price , String  description ,String lastupdate) {
+public class Product {
+    private   Alert alert;
+    private static int product_id,price,quantity;
+    private static String product_name,description,lastupdate;
+    private static int wight;
+    private Button button;
+
+    public Product() {
+    }
+
+    public Product(int id , String name , int quantity , int price , String  description , String lastupdate) {
         this.product_id = id;
         this.product_name = name;
         this.quantity = quantity;
         this.price = price;
         this.description = description;
         this.lastupdate = lastupdate;
+        this.button = new Button("Info");
+
+        alert = new Alert(Alert.AlertType.INFORMATION);
+
+        button.setOnAction(click ->{
+
+            alert.setTitle("ป้าแกลบ");
+            alert.setHeaderText("Product Detail");
+            alert.setContentText(description);
+            alert.showAndWait();
+        });
     }
 
-    public int getProduct_id() {
+
+    public static int getProduct_id() {
         return product_id;
     }
 
@@ -34,12 +54,15 @@ public class Product {
     public String getLastupdate() {
         return lastupdate;
     }
+    public Button getterbutton() {
+        return button;
+    }
 
     public int getWight() {
         return wight;
     }
 
-    public int getQuantity() {
+    public static int getQuantity() {
         return quantity;
     }
 
@@ -72,6 +95,6 @@ public class Product {
     }
 
     public Button getButton(){
-        return new Button("รายละเอียด");
+        return button;
     }
 }
