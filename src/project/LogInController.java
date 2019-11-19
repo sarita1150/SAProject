@@ -47,9 +47,6 @@ public class LogInController {
     @FXML
     private AnchorPane anchorPane;
 
-    @FXML
-    private  Alert alert;
-
 
     @FXML
     private void loadLogin(ActionEvent event) throws IOException {
@@ -85,7 +82,6 @@ public class LogInController {
             alert.showAndWait();
         }
     }
-
 
     @FXML
     private void loadBack(ActionEvent event) throws IOException {
