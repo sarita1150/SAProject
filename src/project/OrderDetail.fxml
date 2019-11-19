@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.OrderDetailController">
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.OrderDetailController">
    <children>
       <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="700.0">
          <children>
@@ -19,13 +19,13 @@
                   <Image url="@../Photo/background.jpg" />
                </image>
             </ImageView>
-            <TableView layoutX="163.0" layoutY="39.0" prefHeight="379.0" prefWidth="511.0">
+            <TableView fx:id="table" layoutX="163.0" layoutY="39.0" prefHeight="379.0" prefWidth="511.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Order ID" />
-                <TableColumn prefWidth="129.8173828125" text="Customer Name" />
-                  <TableColumn prefWidth="140.18258666992188" text="Product Name" />
-                  <TableColumn prefWidth="85.78860473632812" text="Quantity" />
-                  <TableColumn prefWidth="80.92938232421875" text="status" />
+                <TableColumn fx:id="orderid" prefWidth="75.0" text="Order ID" />
+                <TableColumn fx:id="cusname" prefWidth="129.8173828125" text="Customer Name" />
+                  <TableColumn fx:id="proname" prefWidth="140.18258666992188" text="Product Name" />
+                  <TableColumn fx:id="quan" prefWidth="85.78860473632812" text="Quantity" />
+                  <TableColumn fx:id="status" prefWidth="80.92938232421875" text="status" />
               </columns>
             </TableView>
             <Button layoutX="13.0" layoutY="160.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="83.0" text="All" />

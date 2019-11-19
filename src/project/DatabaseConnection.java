@@ -62,7 +62,33 @@ public class DatabaseConnection {
         }
         return false;
     }
-
+    public  static  ArrayList<OrderDetailController> showorderdetail() {
+        ArrayList<OrderDetailController> orderDetailControllers = new ArrayList<>();
+        try {
+            Class.forName(driver);
+            Connection connection = DriverManager.getConnection(dbURL,dbUser,dbPass);
+            String query = "Select order_id,order_status from Order";
+            String query1 = "Select product_name from Product";
+            String query2 = "Select quantity from Orderdetail";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            ResultSet resultSet1 = statement.executeQuery(query1);
+            ResultSet resultSet2 = statement.executeQuery(query2);
+            while (resultSet.next()) {
+                orderDetailControllers.add(new OrderDetailController());
+                System.out.println(resultSet.getString("order_id"));
+                System.out.println(resultSet.getString("order_status"));
+                System.out.println(resultSet1.getString("product_name"));
+                System.out.println(resultSet2.getString("quantity"));
+            }
+            connection.close();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     public static ArrayList<Product> showProduct(){
         ArrayList<Product> product = new ArrayList<>();
         try {
@@ -117,7 +143,6 @@ public class DatabaseConnection {
             e.printStackTrace();
         }
     }
-
 
     public static boolean checkPacked(int order_id){
         boolean check = false;

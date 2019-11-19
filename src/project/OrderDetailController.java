@@ -11,15 +11,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class OrderDetailController<ProductTable> {
 
-
+    @FXML
+    private TableColumn<String,OrderDetailController> productid;
+    private TableColumn<String,OrderDetailController> cusname;
+    private TableColumn<String,OrderDetailController> proname;
+    private TableColumn<String,OrderDetailController> quan;
+    private TableColumn<String,OrderDetailController> status;
     @FXML
     private Button back;
 
@@ -29,7 +38,15 @@ public class OrderDetailController<ProductTable> {
     @FXML
     private AnchorPane anchorPane;
 
-    ObservableList<ProductTable> data = (ObservableList<ProductTable>) DatabaseConnection.showProduct();
+    ArrayList<OrderDetailController> orderDetailControllers ;
+    public void initialize(){
+        productid.setCellValueFactory(new PropertyValueFactory<>("product_id"));
+        cusname.setCellValueFactory(new PropertyValueFactory<>("customer_name"));
+        proname.setCellValueFactory(new PropertyValueFactory<>("product_name"));
+        quan.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        status.setCellValueFactory(new PropertyValueFactory<>("order_status"));
+
+    }
 
     @FXML
     private void loadBack(ActionEvent event) throws IOException {
@@ -50,5 +67,6 @@ public class OrderDetailController<ProductTable> {
         timeline.play();
 
     }
+
 
 }
