@@ -60,9 +60,9 @@ public class AddProductController {
     }
     @FXML
     private void loadConfirm(ActionEvent event) throws IOException {
-      DatabaseConnection.addProduct(Integer.parseInt(durain1.getText()),1);
-        DatabaseConnection.addProduct(Integer.parseInt(durain2.getText()),2);
-        DatabaseConnection.addProduct(Integer.parseInt(durain3.getText()),3);
+      DatabaseConnection.addProduct(Integer.parseInt(durain1.getText()),2);
+        DatabaseConnection.addProduct(Integer.parseInt(durain2.getText()),3);
+        DatabaseConnection.addProduct(Integer.parseInt(durain3.getText()),4);
 
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
