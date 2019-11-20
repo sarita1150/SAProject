@@ -88,6 +88,7 @@ public class DatabaseConnection {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
     }
     public static ArrayList<Product> showProduct(){
         ArrayList<Product> product = new ArrayList<>();
