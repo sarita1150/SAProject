@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.CheckCustomerController">
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.CheckCustomerController">
    <children>
       <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="700.0">
          <children>
@@ -33,15 +33,14 @@
                <font>
                   <Font size="22.0" />
                </font></Label>
-            <TableView layoutX="26.0" layoutY="137.0" prefHeight="260.0" prefWidth="670.0">
+            <TableView fx:id="tableView" layoutX="26.0" layoutY="137.0" prefHeight="260.0" prefWidth="670.0">
               <columns>
-                <TableColumn prefWidth="86.0" text="Customer ID" />
-                <TableColumn prefWidth="116.0" text="Customer Name" />
-                  <TableColumn prefWidth="88.0" text="E-mail" />
-                  <TableColumn prefWidth="74.0" text="Tel" />
-                  <TableColumn prefWidth="131.0" text="Address" />
-                  <TableColumn prefWidth="76.0" text="Type" />
-                  <TableColumn prefWidth="98.0" text="Money transfer" />
+                <TableColumn fx:id="customer_id" prefWidth="86.0" text="Customer ID" />
+                <TableColumn fx:id="customer_name" prefWidth="135.0" text="Customer Name" />
+                  <TableColumn fx:id="email" prefWidth="121.0" text="E-mail" />
+                  <TableColumn fx:id="tel" prefWidth="131.0" text="Tel" />
+                  <TableColumn fx:id="address" prefWidth="118.0" text="Address" />
+                  <TableColumn fx:id="type" prefWidth="78.0" text="Type" />
               </columns>
             </TableView>
             <Button fx:id="back" layoutX="629.0" layoutY="403.0" mnemonicParsing="false" onAction="#loadBack" prefWidth="67.0" text="Back" />

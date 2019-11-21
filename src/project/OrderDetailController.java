@@ -4,33 +4,46 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
-import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class OrderDetailController<ProductTable> {
+public class OrderDetailController {
 
     @FXML
-    private TableColumn<String,OrderDetailController> productid;
-    private TableColumn<String,OrderDetailController> cusname;
-    private TableColumn<String,OrderDetailController> proname;
-    private TableColumn<String,OrderDetailController> quan;
-    private TableColumn<String,OrderDetailController> status;
+    private TableView<Order> tableView;
+
+    @FXML
+    private TableColumn<Integer,Order> orderid;
+
+    @FXML
+    private TableColumn<String,Order> cusname;
+
+    @FXML
+    private TableColumn<String,Order> proname;
+
+    @FXML
+    private TableColumn<Integer,Order> quan;
+
+    @FXML
+    private TableColumn<String,Order> status;
+
     @FXML
     private Button back;
+
+    @FXML
+    private Button confirm;
 
     @FXML
     private StackPane stackPane;
@@ -38,13 +51,29 @@ public class OrderDetailController<ProductTable> {
     @FXML
     private AnchorPane anchorPane;
 
-    ArrayList<OrderDetailController> orderDetailControllers ;
+    @FXML
+    private ChoiceBox select1;
+
+    @FXML
+    private ChoiceBox selcet2;
+
+    public static OrderDetailController orderDetailController;
+
+
     public void initialize(){
-        productid.setCellValueFactory(new PropertyValueFactory<>("product_id"));
-        cusname.setCellValueFactory(new PropertyValueFactory<>("customer_name"));
-        proname.setCellValueFactory(new PropertyValueFactory<>("product_name"));
-        quan.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        status.setCellValueFactory(new PropertyValueFactory<>("order_status"));
+
+        orderDetailController= this;
+        for (Product p : DatabaseConnection.showProduct()){
+            select1.getItems().addAll(p.getProduct_id());
+        }
+        selcet2.getItems().addAll("Packed");
+
+        orderid.setCellValueFactory(new PropertyValueFactory<>("orderid"));
+        cusname.setCellValueFactory(new PropertyValueFactory<>("cusname"));
+        proname.setCellValueFactory(new PropertyValueFactory<>("proname"));
+        quan.setCellValueFactory(new PropertyValueFactory<>("quan"));
+        status.setCellValueFactory(new PropertyValueFactory<>("status"));
+        tableView.setItems(FXCollections.observableArrayList(DatabaseConnection.showorderdetail()));
 
     }
 
@@ -65,6 +94,18 @@ public class OrderDetailController<ProductTable> {
             stackPane.getChildren().remove(anchorPane);
         });
         timeline.play();
+
+    }
+    @FXML
+    private void clickConfirm(ActionEvent event) throws IOException {
+        System.out.println((String) selcet2.getSelectionModel().getSelectedItem() + (int)select1.getSelectionModel().getSelectedItem());
+        DatabaseConnection.editStatus((String) selcet2.getSelectionModel().getSelectedItem(),(int)select1.getSelectionModel().getSelectedItem());
+        tableView.setItems(FXCollections.observableArrayList(DatabaseConnection.showorderdetail()));
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("ป้าแกลบ");
+        alert.setHeaderText("Congratulation");
+        alert.setContentText("Edit Complete\n");
+        alert.showAndWait();
 
     }
 

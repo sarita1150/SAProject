@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ShopController">
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ShopController">
    <children>
       <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="700.0">
          <children>
@@ -44,11 +44,11 @@
             <Label layoutX="443.0" layoutY="281.0" text="จำนวนคงเหลือ" />
             <Label layoutX="449.0" layoutY="331.0" text="จำนวนซื้อ" />
             <TextField fx:id="show3" layoutX="430.0" layoutY="357.0" prefHeight="0.0" prefWidth="89.0" />
-            <Label fx:id="quantity1" layoutX="76.0" layoutY="306.0" text="40" />
+            <Label fx:id="quantity1" layoutX="76.0" layoutY="306.0" text="0" />
             <Label layoutX="144.0" layoutY="306.0" text="ห่อ" />
-            <Label fx:id="quantity2" layoutX="255.0" layoutY="306.0" text="35" />
+            <Label fx:id="quantity2" layoutX="255.0" layoutY="306.0" text="0" />
             <Label layoutX="323.0" layoutY="306.0" text="แท่ง" />
-            <Label fx:id="quantity3" layoutX="441.0" layoutY="306.0" text="50" />
+            <Label fx:id="quantity3" layoutX="441.0" layoutY="306.0" text="0" />
             <Label layoutX="505.0" layoutY="306.0" text="ห่อ" />
             <ImageView fitHeight="63.0" fitWidth="151.0" layoutX="562.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>

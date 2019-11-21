@@ -33,15 +33,14 @@
                   <Font size="18.0" />
                </font></Label>
             <Button fx:id="warehouse" layoutX="31.0" layoutY="174.0" mnemonicParsing="false" onAction="#loadWarehouse" text="Warehouse" />
-            <Button fx:id="orderDetail" layoutX="30.0" layoutY="252.0" mnemonicParsing="false" onAction="#loadOrderDetail" text="Order Detail" />
+            <Button fx:id="orderDetail" layoutX="29.0" layoutY="213.0" mnemonicParsing="false" onAction="#loadOrderDetail" text="Order Detail" />
             <Button fx:id="logout" layoutX="31.0" layoutY="400.0" mnemonicParsing="false" onAction="#loadLogout" text="Log out" />
-            <Button fx:id="checkCustomer" layoutX="29.0" layoutY="291.0" mnemonicParsing="false" onAction="#loadCheckCustomer" prefHeight="27.0" prefWidth="126.0" text="Check Customer" />
+            <Button fx:id="checkCustomer" layoutX="29.0" layoutY="250.0" mnemonicParsing="false" onAction="#loadCheckCustomer" prefHeight="27.0" prefWidth="126.0" text="Check Customer" />
             <ImageView fitHeight="76.0" fitWidth="172.0" layoutX="29.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Photo/ป้าแกลบ3.png" />
                </image>
             </ImageView>
-            <Button fx:id="checkPayment" layoutX="29.0" layoutY="213.0" mnemonicParsing="false" onAction="#loadCheckPayment" prefHeight="27.0" prefWidth="119.0" text="Check Payment" />
          </children>
       </AnchorPane>
    </children>

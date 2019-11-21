@@ -32,8 +32,6 @@ public class MenuController {
     @FXML
     Button warehouse;
 
-    @FXML
-    Button modifyProduct;
 
     @FXML
     Button orderDetail;
@@ -44,17 +42,12 @@ public class MenuController {
     @FXML
     TableView<Product> tableView;
 
-    @FXML
-    TableColumn<String,Product> lastupdate;
 
     @FXML
     TableColumn<String,Product> product_name;
 
     @FXML
     TableColumn<Integer,Product> product_id;
-
-    @FXML
-    TableColumn<Integer,Product> weight;
 
     @FXML
     TableColumn<Integer,Product> price;
@@ -76,7 +69,7 @@ public class MenuController {
 
     public void initialize(){
         mc = this;
-        Product test = new Product(1,"test",3,3,"test","test");
+        //Product test = new Product(1,"test",3,3,"test");
         refreshTableView();
         product_name.setCellValueFactory(new PropertyValueFactory<>("product_name"));
         product_id.setCellValueFactory(new PropertyValueFactory<>("product_id"));
@@ -188,9 +181,11 @@ public class MenuController {
     }
 
 
-    public void refreshTableView(){
+    public void refreshTableView() {
         tableView.getItems().removeAll();
         tableView.getItems().addAll(DatabaseConnection.showProduct());
+
     }
+
 
 }

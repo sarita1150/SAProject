@@ -2,25 +2,22 @@ package project;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Alert;
 
 public class Product {
-    private   Alert alert;
+    private Alert alert;
     private int product_id,price,quantity;
-    private String product_name,description,lastupdate;
-    private int wight;
+    private String product_name,description;
     private Button button;
 
     public Product() {
     }
 
-    public Product(int id , String name , int quantity , int price , String  description , String lastupdate) {
+    public Product(int id , String name , int quantity , int price , String  description) {
         this.product_id = id;
         this.product_name = name;
         this.quantity = quantity;
         this.price = price;
         this.description = description;
-        this.lastupdate = lastupdate;
         this.button = new Button("Info");
 
         alert = new Alert(Alert.AlertType.INFORMATION);
@@ -51,16 +48,11 @@ public class Product {
         return description;
     }
 
-    public String getLastupdate() {
-        return lastupdate;
-    }
+
     public Button getterbutton() {
         return button;
     }
 
-    public int getWight() {
-        return wight;
-    }
 
     public int getQuantity() {
         return quantity;
@@ -86,13 +78,6 @@ public class Product {
         this.description = description;
     }
 
-    public void setLastupdate(String lastupdate) {
-        this.lastupdate = lastupdate;
-    }
-
-    public void setWight(int wight) {
-        this.wight = wight;
-    }
 
     public Button getButton(){
         return button;

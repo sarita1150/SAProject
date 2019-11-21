@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
@@ -31,7 +32,11 @@ public class CustomerController {
     private AnchorPane anchorPane;
 
     @FXML
+    private TextField customer_id,customer_name,email,address,telphone;
+
+    @FXML
     private void loadConfirm(ActionEvent event) throws IOException {
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("ป้าแกลบ");
         alert.setHeaderText("Congratulation");
